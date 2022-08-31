@@ -58,3 +58,4 @@ void main()
 	printf("Enter VALID MARKS\n");
 	goto hh;	
 }
+/*Help me to add Dynamic memory allocation, display name of students and roll and to reduce time and space complexity*/
