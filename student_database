@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+struct student{
+	int roll;
+	char name[50];
+	float marks[5];
+}s[5];
+void main()
+{
+	int i,j,k,l,x,r[5],y,a;
+	float sum,um[5],large,t;
+	char su[5][5]={"DS","SOPS","DM","DD","OOP"},nam[3][50];
+	for(i=0;i<5;i++)
+	{
+		printf("Enter roll:");
+		scanf("%d",&s[i].roll);
+		r[i]=s[i].roll;
+		printf("Enter Name:");
+		scanf("%s",&s[i].name);
+		//nam[i]=s[i].name;
+		for(j=0;j<5;j++){
+			hh:
+			printf("Enter marks in %s:",su[j]);
+			scanf("%f",&s[i].marks[j]);
+			if(s[i].marks[j]>100||s[i].marks[j]<0){
+				goto ff;
+			}
+		}
+		sum=0;
+		for(k=0;k<5;k++){
+			sum=sum+s[i].marks[k];
+		}
+		um[i]=sum;
+		printf("TOTAL:%.2f\n",sum);
+		printf("AVG:%.2f",sum/5);
+		printf("\n");
+	}
+	for(x=0;x<5;x++)
+	{
+	for(y=x+1;y<5;y++)
+	{
+		if(um[x]<um[y])
+		{
+			t=um[x];
+			um[x]=um[y];
+			um[y]=t;
+		}
+	}
+	}
+	printf("--------------RANK DETAILS-----------------\n");
+	for(a=0;a<5;a++)
+	{
+		printf("RANK-%d:%.2f\n",a+1,um[a]);
+	}
+	exit(0);
+	ff:
+	printf("Enter VALID MARKS\n");
+	goto hh;	
+}
